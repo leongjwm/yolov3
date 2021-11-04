@@ -53,13 +53,15 @@ The outputs of processing an image would be:
 
 ![image_csv](./images_for_readme/image_csv.png)
 
-The coordinates for vessels and kayaks are defined as follows:
+The coordinates for vessels and kayaks are defined as such:
 ![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
 Both outputs will be in the `yolov3` folder.  
 
 ### Using a Video
 **The original video will not be overwritten by the processed video.** **You have the option to include a `.json` file stating the (additional) frames you would like to infer. These frames will be included in the final processed video. Like an image, the output information after processing the frames listed in the `.json` file will be collected and stored in a `.csv` file.**
+
+![json_format](./images_for_readme/json_format.png)
 
 The outputs of processing a video would be:
 1. The processed video with the name `OutputVideo.avi`.
@@ -76,13 +78,17 @@ The output(s) will be located in the `yolov3` folder as well.
 
 ### Inference
 
-Run `python vessel_kayak_count.py` on your terminal. You wil see the following pop-up: 
+Run `python vessel_kayak_count.py` on your terminal. You wil see the following display on your console:
+
+![input_image_or_video_name](./images_for_readme/input_image_or_video_name.png)
 
 Input the name (including file extension) of the image/video that you want processed (and press Enter).
 
 Example: `YourImage.jpg` for images, `YourVideo.avi` for videos.
 
 If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter).
+
+![input_json_name](./images_for_readme/input_json_name.png)
 
 If `Y` is selected, then you can input the additional `.json` file (including file extension), then press Enter. Otherwise, inference will be done only on some frames. The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
 
