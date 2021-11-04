@@ -35,10 +35,15 @@ You now have the necessary packages needed to use the repository.
 ## Detecting Vessels and Kayaks in an Image or Video
 **Before using the repository, ensure that you have activated your virtual environment and also changed directories to the path where the `yolov3` repository is stored in your machine.**
 
-**You have the choice of either processing an image or video.
-If using an image, make a spare copy of it beforehand, as the unprocessed image will be overwritten by the processed one.**
+**You have the choice of either processing an image or video.**
 
-File extensions supported: `*.jpg`, `*.png` for images, `*.avi` for videos.
+If using an **image**, make a spare copy of it beforehand, as the **unprocessed image will be overwritten by the processed one in the same folder**.
+
+If using a **video**, you have the option to include a **json file**, which extracts the  
+
+
+
+File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi` for videos.
 
 Run `python vessel_kayak_count.py` on your terminal. You wil see the following pop-up: 
 
