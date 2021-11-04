@@ -7,6 +7,8 @@ This repository is forked from Ultralytics' implementation of YOLOv3 (an object 
 ## Downloading of Repository
 You can either download the repository in a zip folder and unzip it, or you can run `git clone https://github.com/leongjwm/yolov3.git` on your terminal. You might need to download Git for the latter from this [link](https://git-scm.com/download).
 
+![git_clone](./images_for_readme/git_clone.png)
+
 ## Downloading of Weights for Vessel and Kayak Detection
 **The model weights need to be downloaded from the below link and stored in the `yolov3` folder after cloning this repository.**
 Due to Github's file size limit of 100MB, the weights, **`best.pt`**, need to be downloaded from **[here](https://drive.google.com/file/d/1hgV7DGNPtnOMsAjWPQ47jEooxIBjC2lg/view?usp=sharing)**.
