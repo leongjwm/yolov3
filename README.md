@@ -45,11 +45,11 @@ Make a spare copy of it beforehand, as the **unprocessed image will be overwritt
 The outputs of processing an image would be: 
 1. The processed image with the same filename
 2. A `.csv` file with the name `OutputCSV.csv`. It contains:
-  * image_name
-  * Total number of vessels
-  * Total number of kayaks
-  * Coordinates of bounding boxes for vessels
-  * Coordinates of bounding boxes for kayaks
+   * image_name
+   * Total number of vessels
+   * Total number of kayaks
+   * Coordinates of bounding boxes for vessels
+   * Coordinates of bounding boxes for kayaks
 
 Both outputs will be in the `yolov3` folder.  
 
