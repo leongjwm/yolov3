@@ -10,12 +10,17 @@ Due to Github's file size limit of 100MB, the weights, **`best.pt`**, need to be
 
 ## Setting up of Virtual Environment (Windows)
 To download all the required packages and prevent dependency conflicts, a virtual environment is required. 
-A brief guide on how to create virtual environments in Windows using the `venv` library will be demonstrated below. 
+This is a very basic guide on how to create virtual environments in Windows using the `venv` library will be demonstrated below. 
 
 For Mac/Linux users, please refer to this [link](https://docs.python.org/3/library/venv.html) instead.
 
 ### Step One: Creating a Virtual Environment
-`python3 -m venv /path/to/new/virtual/environment`
+Using Command Prompt, enter `python -m venv /path/to/new/virtual/environment`. 
+Example: `python -m venv YourVirtualEnvironment`, where `YourVirtualEnvironment` is the name of the environment. 
+
+### Step Two: Accessing your Virtual Environment 
+
+
 
 
 
