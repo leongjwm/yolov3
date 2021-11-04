@@ -9,7 +9,7 @@ from shutil import copyfile
 
 """
 For image/video file input
-File extensions supported: *.jpg, *.png for images, *.avi for videos
+File extensions supported: *.jpg, *.jpeg, *.png for images, *.avi, *.mp4 for videos
 
 Note: json file input is only required for videos.
 """
@@ -21,7 +21,7 @@ if not fileInput:
   raise Exception('Empty string. Please input a valid video/image file name')
 
 image_regex = "(^.+(\.(jpe?g)|(png)$))"
-video_regex = "(^.+(\.(avi)$))"     
+video_regex = "(^.+(\.(avi)|(mp4)$))"     
 
 p1 = re.compile(image_regex)
 p2 = re.compile(video_regex)
