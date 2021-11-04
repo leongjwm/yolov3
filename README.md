@@ -58,7 +58,12 @@ If using a **video**, **the original video will not be overwritten by the proces
 
 The outputs of processing a video would be:
 1. The processed video with the name `OutputVideo.avi`.
-2. **If an additional json file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well.
+2. **If an additional json file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well. It contains the following information for each frame:
+    * frame index (number)
+    * Total number of vessels
+    * Total number of kayaks
+    * Coordinates of bounding boxes for vessels
+    * Coordinates of bounding boxes for kayaks
 
 The output(s) will be located in the `yolov3` folder as well.
 
