@@ -92,12 +92,15 @@ If the input is a **video**, you can choose whether to include an `.json` file a
 
 ![input_json_name](./images_for_readme/input_json_name.png)
 
-If `Y` is selected, then you can input the additional `.json` file (including file extension), then press Enter. Otherwise, inference will be done only on some frames. The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
+If `Y` is selected, then you can input the additional `.json` file (including file extension), then press Enter. Otherwise, inference will be done only on some frames of the input video.
+
+The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
 
 The outputs should be produced after running the `vessel_kayak_count.py` file. 
 
+## Debugging of Errors
 
-
+* (Q) When I ran 
 
 
 
