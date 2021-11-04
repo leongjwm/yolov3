@@ -54,7 +54,7 @@ The outputs of processing an image would be:
 Both outputs will be in the `yolov3` folder.  
 
 ### Using a Video
-If using a **video**, **the original video will not be overwritten by the processed video.** **You have the option to include a json file stating the frames you would like to infer. These frames will be included in the final processed video. Like an image, the output information after processing the frames listed in the json file will be collected and stored in a .csv file.**
+**The original video will not be overwritten by the processed video.** **You have the option to include a json file stating the (additional) frames you would like to infer. These frames will be included in the final processed video. Like an image, the output information after processing the frames listed in the json file will be collected and stored in a .csv file.**
 
 The outputs of processing a video would be:
 1. The processed video with the name `OutputVideo.avi`.
@@ -67,13 +67,18 @@ The outputs of processing a video would be:
 
 The output(s) will be located in the `yolov3` folder as well.
 
-### Start Running
+### Inference
 
 Run `python vessel_kayak_count.py` on your terminal. You wil see the following pop-up: 
 
-Input the name (including file extension) of the image/video that you want processed, and press Enter.
+Input the name (including file extension) of the image/video that you want processed, and press Enter on your keyboard.
 
 Example: `YourImage.jpg` for images, `YourVideo.avi` for videos.
+
+If the input is a **video**, you can choose whether to include an json file as an additional input by typing either Y or N, and Enter on your keyboard.
+
+If Y is selected, then you can input the additional json file (including file extension), then press Enter. Otherwise, inference will be done only on some frames. The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. 
+
 
 
 
