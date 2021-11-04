@@ -1,6 +1,6 @@
 # Detecting Vessels and Kayaks using YOLOv3
 
-This repository is forked from Ultralytics' implementation of YOLOv3 (an object detection model) and is catered towards Vessel and Kayak Detection. 
+This repository is forked from Ultralytics' implementation of YOLOv3 (an object detection model) and is catered towards Vessel and Kayak Detection.
 
 **Please read the next few sections carefully before using this repository.**
 
@@ -15,7 +15,15 @@ This is a comprehensive guide on how to use this repository.
 ### Creating a Virtual Environment (Windows)
 To download all the required packages and prevent dependency conflicts, a virtual environment is required. 
 A brief guide on how to create virtual environments in Windows using the `venv` library will be demonstrated below. 
-For Mac/Linux users, please refer to this [link](https://docs.python.org/3/library/venv.html). 
+
+For Mac/Linux users, please refer to this [link](https://docs.python.org/3/library/venv.html) instead.
+
+To download the `venv` package using Command Prompt:
+
+`python3 -m venv /path/to/new/virtual/environment`
+
+
+
 
 
 
