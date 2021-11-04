@@ -52,6 +52,8 @@ The outputs of processing an image would be:
    * Coordinates of bounding boxes for kayaks
 
 ![image_csv](./images_for_readme/image_csv.png)
+
+The coordinates for vessels and kayaks are defined as follows:
 ![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
 Both outputs will be in the `yolov3` folder.  
