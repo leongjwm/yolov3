@@ -103,7 +103,7 @@ The outputs should be produced after running the `vessel_kayak_count.py` file.
 ## Debugging of Errors (FAQ)
 
 * Q: Some packages failed to install in my virtual environment. Is there a way to install these packages? 
-  * A: You can consider upgrading your pip to the latest version by running `python -m pip install --upgrade pip` on your terminal. If this doesn't work, you can use `python -m pip install pip==21.3.1`.
+  * A: You can consider upgrading your pip to the latest version by running `python -m pip install --upgrade pip` on your terminal. If this doesn't work, you can run `python -m pip install pip==21.3.1`.
 
 
 
