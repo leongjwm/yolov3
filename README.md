@@ -51,7 +51,7 @@ The outputs of processing an image would be:
    * Coordinates of bounding boxes for vessels
    * Coordinates of bounding boxes for kayaks
 
-![image_csv](../images_for_readme/image_csv.png)
+![image_csv](./images_for_readme/image_csv.png)
 
 Both outputs will be in the `yolov3` folder.  
 
