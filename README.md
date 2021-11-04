@@ -42,7 +42,7 @@ You now have the necessary packages needed to use the repository.
 **2. Changed directories to the path where the `yolov3` repository is stored in your machine.**
 **3. You have the choice of either processing an image or video. The image/video and `.json` file (optional) must be in the `yolov3` folder.** 
 
-File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi` for videos.
+File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi`, `*.mp4` for videos.
 
 ### Using an Image
 Make a spare copy of it beforehand, as the **unprocessed image will be overwritten by the processed one in the same folder**. 
@@ -108,7 +108,8 @@ The outputs should be produced after running the `vessel_kayak_count.py` file.
 * Q: Some packages failed to install in my virtual environment. Is there a way to install these packages? 
   * A: You can consider upgrading your pip to the latest version by running `python -m pip install --upgrade pip` on your terminal. If this doesn't work, you can run `python -m pip install pip==21.3.1`.
 
-
+* Q: Why isn't the object being detected in my image, despite it clearly being there?
+  * A: Check if the image has already been processed. Processing the image more than once might cause inaccuracies. 
 
 
 
