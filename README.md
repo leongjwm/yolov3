@@ -42,7 +42,9 @@ File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi` for vi
 ### Using an Image
 Make a spare copy of it beforehand, as the **unprocessed image will be overwritten by the processed one in the same folder**. 
 
-The outputs of processing an image would be (1) the processed image with the same filename, and (2) a .csv file with the name `OutputCSV.csv`. Both will be in the `yolov3` folder.  
+The outputs of processing an image would be: 
+(1) the processed image with the same filename
+(2) a .csv file with the name `OutputCSV.csv`. Both will be in the `yolov3` folder.  
 
 ### Using a Video
 If using a **video**, **the original video will not be overwritten by the processed video.** **You have the option to include an additional json file stating the additional frames you would like to infer. Like an image, the information after processing these frames will be collected and stored in a .csv file.**
