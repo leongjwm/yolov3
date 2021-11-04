@@ -1,6 +1,6 @@
 # Detecting Vessels and Kayaks using YOLOv3
 
-This repository is forked from Ultralytics' implementation of YOLOv3 (an object detection model) and is catered towards Vessel and Kayak Detection. \n
+This repository is forked from Ultralytics' implementation of YOLOv3 (an object detection model) and is catered towards Vessel and Kayak Detection.
 **Please read the next few sections carefully before using this repository.**
 
 ## Downloading of Weights for Vessel and Kayak Detection
