@@ -44,14 +44,23 @@ Make a spare copy of it beforehand, as the **unprocessed image will be overwritt
 
 The outputs of processing an image would be: 
 1. The processed image with the same filename
-2. A `.csv` file with the name `OutputCSV.csv`. Both will be in the `yolov3` folder.  
+2. A `.csv` file with the name `OutputCSV.csv`. It contains:
+  * image_name
+  * Total number of vessels
+  * Total number of kayaks
+  * Coordinates of bounding boxes for vessels
+  * Coordinates of bounding boxes for kayaks
+
+Both outputs will be in the `yolov3` folder.  
 
 ### Using a Video
 If using a **video**, **the original video will not be overwritten by the processed video.** **You have the option to include an additional json file stating the additional frames you would like to infer. Like an image, the information after processing these frames will be collected and stored in a .csv file.**
 
 The outputs of processing a video would be:
 1. The processed video with the name `OutputVideo.avi`.
-2. **If an additional json file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well. The output(s) will be located in the `yolov3` folder as well.
+2. **If an additional json file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well.
+
+The output(s) will be located in the `yolov3` folder as well.
 
 ### Start Running
 
