@@ -44,7 +44,7 @@ Make a spare copy of it beforehand, as the **unprocessed image will be overwritt
 
 The outputs of processing an image would be: 
 1. The processed image with the same filename
-2. A `.csv` file with the name `OutputCSV.csv`. It contains:
+2. A `.csv` file with the name `OutputCSV.csv`. It contains the following information:
    * image_name
    * Total number of vessels
    * Total number of kayaks
@@ -54,11 +54,11 @@ The outputs of processing an image would be:
 Both outputs will be in the `yolov3` folder.  
 
 ### Using a Video
-If using a **video**, **the original video will not be overwritten by the processed video.** **You have the option to include an additional json file stating the additional frames you would like to infer. Like an image, the information after processing these frames will be collected and stored in a .csv file.**
+If using a **video**, **the original video will not be overwritten by the processed video.** **You have the option to include a json file stating the frames you would like to infer. These frames will be included in the final processed video. Like an image, the output information after processing the frames listed in the json file will be collected and stored in a .csv file.**
 
 The outputs of processing a video would be:
 1. The processed video with the name `OutputVideo.avi`.
-2. **If an additional json file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well. It contains the following information for each frame:
+2. **If a json file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well. It contains the following information for each frame:
     * frame index (number)
     * Total number of vessels
     * Total number of kayaks
@@ -75,7 +75,7 @@ Input the name (including file extension) of the image/video that you want proce
 
 Example: `YourImage.jpg` for images, `YourVideo.avi` for videos.
 
-If your input is a video, you will have the following option of inputting a json file which specifies the frames you want to infer, 
+
 
 
 
