@@ -1,0 +1,9 @@
+# train and val data 
+train: ./combined_dataset/train.txt  
+val: ./combined_dataset/val.txt  
+
+# number of classes
+nc: 2
+
+# class names
+names: ['vessel', 'kayak']
