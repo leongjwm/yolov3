@@ -192,7 +192,40 @@ def detect(opt):
         frames_to_csv.sort()
         for frame_to_infer in frames_to_csv:
             new_image_name = str(frame_to_infer).rjust(6, '0')
-            text_file = glob.glob(tempTxtPath + '/' + new_image_name + '.txt')[0]
+            text_list = glob.glob(tempTxtPath + '/' + new_image_name + '.txt')
+            if text_list:
+                text_file = text_list[0]
+                num_vessels = 0
+                num_kayaks = 0
+                vessels_xywh_conf = ""
+                kayaks_xywh_conf = ""
+                with open(text_file) as f:
+                    for line in f:
+                        predClass, x, y, w, h, confScore = line.split(" ")
+                        xywh_conf = x + "_" + y + "_" + w + "_" + h + "_" + confScore.rstrip() + ";"
+                        if int(predClass) == 0:
+                            num_vessels += 1
+                            vessels_xywh_conf += xywh_conf
+                        else:
+                            num_kayaks += 1
+                            kayaks_xywh_conf += xywh_conf
+                
+                if not vessels_xywh_conf:
+                    vessels_xywh_conf = '-'
+                if not kayaks_xywh_conf:
+                    kayaks_xywh_conf = '-'
+
+                master_df.loc[len(master_df)] = [frame_to_infer, num_vessels, num_kayaks, vessels_xywh_conf, kayaks_xywh_conf]
+            else:
+                master_df.loc[len(master_df)] = [frame_to_infer, 0, 0, '-', '-']
+
+        master_df.to_csv("OutputCSV.csv", index=False)
+    
+    if isImage: # for image
+        master_df = pd.DataFrame(columns=["image_name", "no_of_ships", "no_of_kayaks", "ships_coordinates", "kayaks_coordinates"])
+        text_list = glob.glob(tempTxtPath + '/*.txt')
+        if text_list:
+            text_file = glob.glob(tempTxtPath + '/*.txt')[0]
             num_vessels = 0
             num_kayaks = 0
             vessels_xywh_conf = ""
@@ -213,35 +246,11 @@ def detect(opt):
             if not kayaks_xywh_conf:
                 kayaks_xywh_conf = '-'
 
-            master_df.loc[len(master_df)] = [frame_to_infer, num_vessels, num_kayaks, vessels_xywh_conf, kayaks_xywh_conf]
-        
-        master_df.to_csv("OutputCSV.csv", index=False)
-    
-    if isImage: # for image
-        master_df = pd.DataFrame(columns=["image_name", "no_of_ships", "no_of_kayaks", "ships_coordinates", "kayaks_coordinates"])
-        text_file = glob.glob(tempTxtPath + '/*.txt')[0]
-        num_vessels = 0
-        num_kayaks = 0
-        vessels_xywh_conf = ""
-        kayaks_xywh_conf = ""
-        with open(text_file) as f:
-            for line in f:
-                predClass, x, y, w, h, confScore = line.split(" ")
-                xywh_conf = x + "_" + y + "_" + w + "_" + h + "_" + confScore.rstrip() + ";"
-                if int(predClass) == 0:
-                    num_vessels += 1
-                    vessels_xywh_conf += xywh_conf
-                else:
-                    num_kayaks += 1
-                    kayaks_xywh_conf += xywh_conf
-        
-        if not vessels_xywh_conf:
-            vessels_xywh_conf = '-'
-        if not kayaks_xywh_conf:
-            kayaks_xywh_conf = '-'
+            master_df.loc[len(master_df)] = [img_name, num_vessels, num_kayaks, vessels_xywh_conf, kayaks_xywh_conf]
 
-        master_df.loc[len(master_df)] = [img_name, num_vessels, num_kayaks, vessels_xywh_conf, kayaks_xywh_conf]
-        
+        else:
+            master_df.loc[len(master_df)] = [img_name, 0, 0, '-', '-']
+
         master_df.to_csv("OutputCSV.csv", index=False)
         
 
