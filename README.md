@@ -33,11 +33,19 @@ Run `pip install -r requirements.txt` using Command Prompt.
 You now have the necessary packages needed to use the repository. 
 
 ## Detecting Vessels and Kayaks in an Image or Video
-**Before using the repository, ensure that you have activated your virtual environment and also changed directories to the path where the `yolov3` repository is stored in your machine.**
+**Before using the repository, ensure that you have activated your virtual environment and also changed directories to the path where the `yolov3` repository is stored in your machine. The image or video that you want processed needs to be in the same directory as the `yolov3` repository.**
 
 File extensions supported: `*.jpg`, `*.png` for images, `*.avi` for videos.
 
 Run `python vessel_kayak_count.py` on your terminal. You wil see the following pop-up: 
+
+Input the name (including file extension) of the image/video that you want processed, and press Enter.
+
+Example: `YourImage.jpg` for images, `YourVideo.avi` for videos.
+
+
+
+
 
 
 
