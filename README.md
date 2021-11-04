@@ -35,7 +35,7 @@ You now have the necessary packages needed to use the repository.
 ## Detecting Vessels and Kayaks in an Image or Video
 **Before using the repository, ensure that you have activated your virtual environment and also changed directories to the path where the `yolov3` repository is stored in your machine.**
 
-**You have the choice of either processing an image or video. The image/video and additional json file (optional) must be in the `yolov3` folder.** 
+**You have the choice of either processing an image or video. The image/video and `.json` file (optional) must be in the `yolov3` folder.** 
 
 File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi` for videos.
 
@@ -54,11 +54,11 @@ The outputs of processing an image would be:
 Both outputs will be in the `yolov3` folder.  
 
 ### Using a Video
-**The original video will not be overwritten by the processed video.** **You have the option to include a json file stating the (additional) frames you would like to infer. These frames will be included in the final processed video. Like an image, the output information after processing the frames listed in the json file will be collected and stored in a .csv file.**
+**The original video will not be overwritten by the processed video.** **You have the option to include a `.json` file stating the (additional) frames you would like to infer. These frames will be included in the final processed video. Like an image, the output information after processing the frames listed in the `.json` file will be collected and stored in a `.csv` file.**
 
 The outputs of processing a video would be:
 1. The processed video with the name `OutputVideo.avi`.
-2. **If a json file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well. It contains the following information for each frame:
+2. **If a `.json` file was used**, a `.csv` file with the name `OutputCSV.csv` will be produced as well. It contains the following information for each frame:
     * frame index (number)
     * Total number of vessels
     * Total number of kayaks
@@ -71,13 +71,16 @@ The output(s) will be located in the `yolov3` folder as well.
 
 Run `python vessel_kayak_count.py` on your terminal. You wil see the following pop-up: 
 
-Input the name (including file extension) of the image/video that you want processed, and press Enter on your keyboard.
+Input the name (including file extension) of the image/video that you want processed (and press Enter).
 
 Example: `YourImage.jpg` for images, `YourVideo.avi` for videos.
 
-If the input is a **video**, you can choose whether to include an json file as an additional input by typing either Y or N, and Enter on your keyboard.
+If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter).
 
-If Y is selected, then you can input the additional json file (including file extension), then press Enter. Otherwise, inference will be done only on some frames. The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. 
+If `Y` is selected, then you can input the additional `.json` file (including file extension), then press Enter. Otherwise, inference will be done only on some frames. The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
+
+The outputs should be produced after running the `vessel_kayak_count.py` file. 
+
 
 
 
