@@ -52,6 +52,7 @@ The outputs of processing an image would be:
    * Coordinates of bounding boxes for kayaks
 
 ![image_csv](./images_for_readme/image_csv.png)
+![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
 Both outputs will be in the `yolov3` folder.  
 
@@ -66,6 +67,8 @@ The outputs of processing a video would be:
     * Total number of kayaks
     * Coordinates of bounding boxes for vessels
     * Coordinates of bounding boxes for kayaks
+
+![video_csv](./images_for_readme/video_csv.png)
 
 The output(s) will be located in the `yolov3` folder as well.
 
