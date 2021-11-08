@@ -41,7 +41,9 @@ You now have the necessary packages needed to use the repository.
 **Before using the repository, ensure that you have:**
 
 **1. Activated your virtual environment**
+
 **2. Changed directories to the path where the `yolov3` repository is stored in your machine.**
+
 **3. You have the choice of either processing an image or video. The image/video and `.json` file (optional) must be in the `yolov3` folder.** 
 
 File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi`, `*.mp4` for videos.
