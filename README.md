@@ -2,9 +2,9 @@
 
 This repository is forked from Ultralytics' implementation of YOLOv3 (an object detection model) and is catered towards Vessel and Kayak Detection. This guide assumes that you have basic knowledge of Python. 
 
-We provide two means of performing detection:
-1. Virtual Environment
-2. Docker
+We provide two methods of performing detection:
+Method 1. Virtual Environment
+Method 2. Docker
 
 **Please read the next few sections carefully before using this repository.**
 
@@ -17,7 +17,7 @@ You can either download the repository in a zip folder and unzip it, or you can 
 **The model weights need to be downloaded from the below link and stored in the `yolov3` folder after cloning this repository.**
 Due to Github's file size limit of 100MB, the weights, **`best.pt`**, need to be downloaded from **[here](https://drive.google.com/file/d/1hgV7DGNPtnOMsAjWPQ47jEooxIBjC2lg/view?usp=sharing)**.
 
-## Virtual Environment: Setting Up (Windows)
+## Method 1: Virtual Environment: Setting Up (Windows)
 To download all the required packages to use the repository and prevent dependency conflicts, a virtual environment is required. 
 This is a very basic guide on how to create virtual environments in Windows using the `venv` library will be demonstrated below. 
 
@@ -112,7 +112,7 @@ The frames chosen are such that the time taken to complete the inference (inclus
 The outputs should be produced after running the `vessel_kayak_count.py` file. 
 
 
-## Docker: Setting Up (Windows)
+## Method 2: Docker: Setting Up (Windows)
 A built Docker Image contains all the required packages and prevents dependency conflicts; the Dockerfile required is provided in this repository. 
 We will demonstrate how to build our Docker Image, which we will later use when we perform detection.
 
@@ -131,7 +131,7 @@ Do look at the output displayed in your console to ensure all instructions have 
 ## Docker: Detecting Vessels and Kayaks in an Image or Video
 **Before using the repository, ensure that you have:**
 
-**1. Built your Docker Image**
+**1. Built your Docker Image.**
 
 **2. Changed working directory to the path where your source data (image(s), video(s), .json file(s) are stored in your machine.**
 
