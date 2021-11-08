@@ -37,7 +37,7 @@ Run `pip install -r requirements.txt` using Command Prompt.
 
 You now have the necessary packages needed to use the repository. 
 
-## Detecting Vessels and Kayaks in an Image or Video
+## Detecting Vessels and Kayaks in an Image or Video (using a Virtual Environment)
 **Before using the repository, ensure that you have:**
 
 **1. Activated your virtual environment**
