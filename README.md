@@ -3,8 +3,9 @@
 This repository is forked from Ultralytics' implementation of YOLOv3 (an object detection model) and is catered towards Vessel and Kayak Detection. This guide assumes that you have basic knowledge of Python. 
 
 We provide two methods of performing detection:
-Method 1. Virtual Environment
-Method 2. Docker
+
+1. Virtual Environment
+2. Docker
 
 **Please read the next few sections carefully before using this repository.**
 
@@ -53,7 +54,7 @@ You now have the necessary packages needed to use the repository.
 File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi`, `*.mp4` for videos.
 
 ### Using an Image
-Make a spare copy of it beforehand, as the **unprocessed image will be overwritten by the processed one in the same folder**. 
+Make a spare copy of it beforehand, as the **unprocessed image will be overwritten by the processed one in the same folder as they have the same name**. 
 
 The outputs of processing an image would be: 
 1. The processed image with the same filename
@@ -69,7 +70,7 @@ The outputs of processing an image would be:
 The coordinates for vessels and kayaks are defined as such:
 ![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
-Both outputs will be in the `yolov3` folder.  
+**Both outputs will be in the `yolov3` folder. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent OutputCSV.csv file will overwrite the previous one as well.**
 
 ### Using a Video
 **The original video will not be overwritten by the processed video.** **You have the option to include a `.json` file stating the (additional) frames you would like to infer. These frames from the input video will be included in the final processed video. Like an image, the output information after processing the frames listed in the `.json` file will be collected and stored in a `.csv` file.**
@@ -89,7 +90,7 @@ The outputs of processing a video would be:
 
 ![video_csv](./images_for_readme/video_csv.png)
 
-The output(s) will be located in the `yolov3` folder as well.
+**The output(s) will be located in the `yolov3` folder as well. Any subsequent OutputCSV.csv file will overwrite the previous one.**
 
 ### Inference
 
@@ -140,7 +141,7 @@ Do look at the output displayed in your console to ensure all instructions have 
 File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi`, `*.mp4` for videos.
 
 ### Using an Image
-Make a spare copy of it beforehand, as the **unprocessed image will be overwritten by the processed one in the same folder**. 
+Make a spare copy of it beforehand, as the **unprocessed image will be overwritten by the processed one in the same folder as they have the same name**. 
 
 The outputs of processing an image would be: 
 1. The processed image with the same filename
@@ -156,7 +157,7 @@ The outputs of processing an image would be:
 The coordinates for vessels and kayaks are defined as such:
 ![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
-Both outputs will be in the `yolov3` folder.  
+**Both outputs will be in the folder where your source data (image(s), video(s), .json file(s) are stored in your machine. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent OutputCSV.csv file will overwrite the previous one as well.**
 
 ### Using a Video
 **The original video will not be overwritten by the processed video.** **You have the option to include a `.json` file stating the (additional) frames you would like to infer. These frames from the input video will be included in the final processed video. Like an image, the output information after processing the frames listed in the `.json` file will be collected and stored in a `.csv` file.**
@@ -176,13 +177,13 @@ The outputs of processing a video would be:
 
 ![video_csv](./images_for_readme/video_csv.png)
 
-The output(s) will be located in the `yolov3` folder as well.
+**Output(s) will be in the folder where your source data (image(s), video(s), .json file(s) are stored in your machine. Any subsequent OutputCSV.csv file will overwrite the previous one.**
 
 ### Inference
 
 **Remember to change working directory to the path where your source data (image(s), video(s), .json file(s) are stored in your machine.**
 
-Run `docker run -it -v "$(pwd):/usr/src/app/<name-of-new-data-folder>" <your-docker-image-name>` on your terminal. You will see the following display on your console:
+Run `docker run -it --gpus all -v "$(pwd):/usr/src/app/<name-of-new-data-folder>" <your-docker-image-name>` on your terminal. You will see the following display on your console:
 
 ![input_image_or_video_name](./images_for_readme/input_image_or_video_name.png)
 
@@ -198,7 +199,7 @@ If `Y` is selected, then you can input the additional `.json` file (including fi
 
 The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
 
-The outputs should be produced after running the `vessel_kayak_count.py` file.
+The outputs should be produced after running `docker run -it --gpus all -v "$(pwd):/usr/src/app/<name-of-new-data-folder>" <your-docker-image-name>`, in the source folder provided for the mounting.
 
 
 ## Debugging of Errors (FAQ)
