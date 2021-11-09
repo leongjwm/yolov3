@@ -120,7 +120,7 @@ We will demonstrate how to build our Docker Image, which we will later use when 
 We need to download and install [Docker Desktop](https://docs.docker.com/get-docker/). For those using Visual Studio Code, it is recommended to install the [Docker Extension](https://code.visualstudio.com/docs/containers/overview).
 
 ### Building the Docker Image
-**Before running, ENSURE you are at the correct directory; it is the path where the `yolov3` repository is located in your computer. YOU MUST DO THIS to ensure the contents of the yolov3 directory are in the Docker Image.**
+**Before running, ENSURE you are at the correct directory; it is the path where the `yolov3` repository is located in your computer. YOU MUST DO THIS to ensure the contents of the yolov3 directory are in the Docker Image. Remember to download the weights from the Google Drive link above and include them in the repository beforehand.**
 
 Run `docker build -t <your-docker-image-name> .` in your Terminal.
 
