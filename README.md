@@ -133,13 +133,13 @@ Source: https://pytorch.org/get-started/locally/
 
 **Additionally, mounting a source folder containing the images / videos / json files that we want to use in our detection is required. You can modify the location of the source and destination folders in the `docker-compose.yml` file. The source and destination folders need to be in the same machine. Additionally, the `docker-compose.yml` file has been set such that gpu will be used.**
 
-We recommend creating a new folder named `src` in the machine you are using, and move it in the `yolov3` repository. This is so that you need not change the contents of `docker-compose.yml`.
+We recommend creating a new folder named `src` in the machine you are using, and move it in the `yolov3` repository. This is so that you need not change the contents of `docker-compose.yml`. (The `src` folder won't be in the Docker Container created, as we included it in the `.dockerignore` file.)
 
 Below are the contents of the `docker-compose.yml` folder:
 
 ![docker_compose_yml_contents](./images_for_readme/docker_compose_yml_contents.png)
 
-For instance, the default settings in the `docker-compose.yml` file are such that the `./src` (it is located in the `yolov3` repo in this case) and  is the source, and `/app/src` is the destination (located in the Docker container). (The `src` folder won't be in the Docker Container created, due to the `.dockerignore` file.) 
+For instance, the default settings in the `docker-compose.yml` file are such that the `./src` (it is located in the `yolov3` repo in this case) and  is the source, and `/app/src` is the destination (located in the Docker container). 
 
 **Create the Docker Container: `docker-compose up -d`** (after setting your source and destination folders in `docker-compose.yml`).
 
@@ -208,7 +208,7 @@ Example: `dest_folder/YourImage.jpg` for images, `dest_folder/YourVideo.avi` for
 
 If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME you stated in `docker-compose.yml`.**
 
-Example: `dest_folder/YourJson.json,  where `dest_folder` is the destination folder stated in `docker-compose.yml`.
+Example: `dest_folder/YourJson.json`,  where `dest_folder` is the destination folder stated in `docker-compose.yml`.
 
 ![input_json_name](./images_for_readme/input_json_name.png)
 
