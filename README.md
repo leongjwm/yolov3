@@ -129,11 +129,11 @@ Source: https://pytorch.org/get-started/locally/
 ### Creating the Docker Image and Container
 **Before running, ENSURE your present working directory is the correct directory; it is the path where the `yolov3` repository is located in your computer. YOU MUST DO THIS to ensure the contents of the yolov3 directory are in the Docker Image. Remember to download the weights from the Google Drive link [here](https://drive.google.com/file/d/1hgV7DGNPtnOMsAjWPQ47jEooxIBjC2lg/view?usp=sharing) and include them in the repository beforehand.**
 
-**Additionally, mounting a source folder containing the images / videos / json files that we want to use in our detection is required. You can modify the location of the source and destination folders in the `docker-compose.yml` file. Additionally, the docker-compose.yml file has been set such that gpu will be used.**
+**Additionally, mounting a source folder containing the images / videos / json files that we want to use in our detection is required. You can modify the location of the source and destination folders in the `docker-compose.yml` file. Additionally, the `docker-compose.yml` file has been set such that gpu will be used.**
 
 ![docker_compose_yml_contents](./images_for_readme/docker_compose_yml_contents.png)
 
-For instance, the default settings are such that the `./src` is the source, and `/app/src` is the destination. (The `src` folder won't be in the Docker container created, due to the `.dockerignore` file.) 
+For instance, the default settings in the `docker-compose.yml` file are such that the `./src` is the source, and `/app/src` is the destination. (The `src` folder won't be in the Docker container created, due to the `.dockerignore` file.) 
 
 After setting the source and destination, we can create the Docker Container: `docker-compose up -d`
 
