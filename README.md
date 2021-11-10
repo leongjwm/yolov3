@@ -45,7 +45,7 @@ You now have the necessary packages needed to use the repository.
 ## Virtual Environment: Detecting Vessels and Kayaks in an Image or Video
 **Before using the repository, ensure that you have:**
 
-**1. Activated your virtual environment**
+**1. Activated your virtual environment and moved the downloaded model weights to the `yolov3` folder.**
 
 **2. Changed directories to the path where the `yolov3` repository is stored in your machine.**
 
@@ -70,7 +70,7 @@ The outputs of processing an image would be:
 The coordinates for vessels and kayaks are defined as such:
 ![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
-**Both outputs will be in the `yolov3` folder. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent OutputCSV.csv file will overwrite the previous one as well.**
+**Both outputs will be in the `yolov3` folder. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent `OutputCSV.csv` file will overwrite the previous one as well.**
 
 ### Using a Video
 **The original video will not be overwritten by the processed video.** **You have the option to include a `.json` file stating the (additional) frames you would like to infer. These frames from the input video will be included in the final processed video. Like an image, the output information after processing the frames listed in the `.json` file will be collected and stored in a `.csv` file.**
@@ -90,7 +90,7 @@ The outputs of processing a video would be:
 
 ![video_csv](./images_for_readme/video_csv.png)
 
-**The output(s) will be located in the `yolov3` folder as well. Any subsequent OutputCSV.csv file will overwrite the previous one.**
+**The output(s) will be located in the `yolov3` folder as well. Any subsequent `OutputVideo.avi` and `OutputCSV.csv` file will overwrite the previous ones.**
 
 ### Inference
 
@@ -114,29 +114,40 @@ The outputs should be produced after running the `vessel_kayak_count.py` file.
 
 
 ## Method 2: Docker: Setting Up (Windows)
+
+**It is highly recommended to use a cloud service for this method.**
+
 A built Docker Image contains all the required packages and prevents dependency conflicts; the Dockerfile required is provided in this repository. 
 We will demonstrate how to build our Docker Image, which we will later use when we perform detection.
 
 We need to download and install [Docker Desktop](https://docs.docker.com/get-docker/). For those using Visual Studio Code, it is recommended to install the [Docker Extension](https://code.visualstudio.com/docs/containers/overview).
 
-### Building the Docker Image
-**Before running, ENSURE you are at the correct directory; it is the path where the `yolov3` repository is located in your computer. YOU MUST DO THIS to ensure the contents of the yolov3 directory are in the Docker Image. Remember to download the weights from the Google Drive link above and include them in the repository beforehand.**
+Docker image was tested to be working on a `p2.xlarge` AWS EC2 instance. The `p2.xlarge` instances have a Tesla K80 GPU, and in the Dockerfile, we installed a version of pytorch compatible with the CUDA11.3 platform.
 
-Run `docker build -t <your-docker-image-name> .` in your Terminal.
+Source: https://pytorch.org/get-started/locally/
 
-Example: `docker build -t my-docker-image .`, where `my-docker-image` is the name of the Docker Image. 
+### Creating the Docker Image and Container
+**Before running, ENSURE your present working directory is the correct directory; it is the path where the `yolov3` repository is located in your computer. YOU MUST DO THIS to ensure the contents of the yolov3 directory are in the Docker Image. Remember to download the weights from the Google Drive link [here](https://drive.google.com/file/d/1hgV7DGNPtnOMsAjWPQ47jEooxIBjC2lg/view?usp=sharing) and include them in the repository beforehand.**
 
-NOTE: It will take some time to create the Docker Image, and it uses a lot of computational resources (notably your RAM).
+**Additionally, mounting a source folder containing the images / videos / json files that we want to use in our detection is required. You can modify the location of the source and destination folders in the `docker-compose.yml` file. Additionally, the docker-compose.yml file has been set such that gpu will be used.**
+
+![docker_compose_yml_contents](./images_for_readme/docker_compose_yml_contents.png)
+
+For instance, the default settings are such that the `./src` is the source, and `/app/src` is the destination. (The `src` folder won't be in the Docker container created, due to the `.dockerignore` file.) 
+
+After setting the source and destination, we can create the Docker Container: `docker-compose up -d`
+
+NOTE: It will take some time to create the Docker Image, and it uses a lot of computational resources.
 Do look at the output displayed in your console to ensure all instructions have been run.
+
+**IMPORTANT: If the `FROM nvcr.io/nvidia/pytorch:21.03-py3` instruction in the Dockerfile fails, run `docker pull nvcr.io/nvidia/pytorch:21.03-py3` and later run `docker-compose up -d` again.
 
 ## Docker: Detecting Vessels and Kayaks in an Image or Video
 **Before using the repository, ensure that you have:**
 
-**1. Built your Docker Image.**
+**1. Created your Docker Container.**
 
-**2. Changed working directory to the path where your source data (image(s), video(s), .json file(s) are stored in your machine.**
-
-**3. You have the choice of either processing an image or video. The image/video and `.json` file (optional) must be in the `yolov3` folder.** 
+**2. You have the choice of either processing an image or video. The image/video and `.json` file (optional) must be in the source folder stated in `docker_compose.yml`.** 
 
 File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi`, `*.mp4` for videos.
 
@@ -157,7 +168,7 @@ The outputs of processing an image would be:
 The coordinates for vessels and kayaks are defined as such:
 ![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
-**Both outputs will be in the folder where your source data (image(s), video(s), .json file(s) are stored in your machine. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent OutputCSV.csv file will overwrite the previous one as well.**
+**Both outputs will be in the folder where your source data (image(s), video(s), .json file(s) are stored in your machine. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent `OutputCSV.csv` file will overwrite the previous one as well.**
 
 ### Using a Video
 **The original video will not be overwritten by the processed video.** **You have the option to include a `.json` file stating the (additional) frames you would like to infer. These frames from the input video will be included in the final processed video. Like an image, the output information after processing the frames listed in the `.json` file will be collected and stored in a `.csv` file.**
@@ -177,13 +188,11 @@ The outputs of processing a video would be:
 
 ![video_csv](./images_for_readme/video_csv.png)
 
-**Output(s) will be in the folder where your source data (image(s), video(s), .json file(s) are stored in your machine. Any subsequent OutputCSV.csv file will overwrite the previous one.**
+**Output(s) will be in the folder where your source data (image(s), video(s), .json file(s) are stored in your machine. Any subsequent `OutputCSV.csv` file will overwrite the previous one.**
 
 ### Inference
 
-**Remember to change working directory to the path where your source data (image(s), video(s), .json file(s) are stored in your machine.**
-
-Run `docker run -it --gpus all -v "$(pwd):/usr/src/app/<name-of-new-data-folder>" <your-docker-image-name>` on your terminal. You will see the following display on your console:
+Run `docker exec -it <your-container-name>` on your terminal. In this case, the container name is `yolov3`, which is the default name set in `docker-compose.yml`. You will see the following display on your console:
 
 ![input_image_or_video_name](./images_for_readme/input_image_or_video_name.png)
 
@@ -199,7 +208,7 @@ If `Y` is selected, then you can input the additional `.json` file (including fi
 
 The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
 
-The outputs should be produced after running `docker run -it --gpus all -v "$(pwd):/usr/src/app/<name-of-new-data-folder>" <your-docker-image-name>`, in the source folder provided for the mounting.
+The outputs should be produced in the source folder provided for the mounting.
 
 
 ## Debugging of Errors (FAQ)
