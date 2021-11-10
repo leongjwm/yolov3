@@ -7,6 +7,8 @@ We provide two methods of performing detection:
 1. Virtual Environment
 2. Docker
 
+We recommend trying the Method 1 (Virtual Environment) first instead of Docker because the latter takes substantially long to create the Docker image.
+
 **Please read the next few sections carefully before using this repository.**
 
 ## Downloading of Repository
@@ -127,18 +129,22 @@ Docker image was tested to be working on a `p2.xlarge` AWS EC2 instance. The `p2
 Source: https://pytorch.org/get-started/locally/
 
 ### Creating the Docker Image and Container
-**Before running, ENSURE your present working directory is the correct directory; it is the path where the `yolov3` repository is located in your computer. YOU MUST DO THIS to ensure the contents of the yolov3 directory are in the Docker Image. Remember to download the weights from the Google Drive link [here](https://drive.google.com/file/d/1hgV7DGNPtnOMsAjWPQ47jEooxIBjC2lg/view?usp=sharing) and include them in the repository beforehand.**
+**Before running, ENSURE your present working directory is the correct directory; it is the path where the `yolov3` repository is located. YOU MUST DO THIS to ensure the contents of the yolov3 directory are in the Docker Image. Remember to download the weights from the Google Drive link [here](https://drive.google.com/file/d/1hgV7DGNPtnOMsAjWPQ47jEooxIBjC2lg/view?usp=sharing) and include them in the repository beforehand.**
 
-**Additionally, mounting a source folder containing the images / videos / json files that we want to use in our detection is required. You can modify the location of the source and destination folders in the `docker-compose.yml` file. Additionally, the `docker-compose.yml` file has been set such that gpu will be used.**
+**Additionally, mounting a source folder containing the images / videos / json files that we want to use in our detection is required. You can modify the location of the source and destination folders in the `docker-compose.yml` file. The source and destination folders need to be in the same machine. Additionally, the `docker-compose.yml` file has been set such that gpu will be used.**
+
+We recommend creating a new folder named `src` in the machine you are using, and move it in the `yolov3` repository. This is so that you need not change the contents of `docker-compose.yml`.
+
+Below are the contents of the `docker-compose.yml` folder:
 
 ![docker_compose_yml_contents](./images_for_readme/docker_compose_yml_contents.png)
 
-For instance, the default settings in the `docker-compose.yml` file are such that the `./src` is the source, and `/app/src` is the destination. (The `src` folder won't be in the Docker container created, due to the `.dockerignore` file.) 
+For instance, the default settings in the `docker-compose.yml` file are such that the `./src` (it is located in the `yolov3` repo in this case) and  is the source, and `/app/src` is the destination (located in the Docker container). (The `src` folder won't be in the Docker Container created, due to the `.dockerignore` file.) 
 
-**Create the Docker Container: `docker-compose up -d`** (after setting your source and destination).
+**Create the Docker Container: `docker-compose up -d`** (after setting your source and destination folders in `docker-compose.yml`).
 
-NOTE: It will take some time to create the Docker Image, and it uses a lot of computational resources.
-Do look at the output displayed in your console to ensure all instructions have been run.
+NOTE: It will take some time to create the Docker Container, and it uses a lot of computational resources.
+Do look at the output displayed in your console to ensure all instructions have been run properly.
 
 **IMPORTANT: If the `FROM nvcr.io/nvidia/pytorch:21.03-py3` instruction in the Dockerfile fails, run `docker pull nvcr.io/nvidia/pytorch:21.03-py3` and later run `docker-compose up -d` again.**
 
@@ -147,7 +153,7 @@ Do look at the output displayed in your console to ensure all instructions have 
 
 **1. Created your Docker Container.**
 
-**2. You have the choice of either processing an image or video. The image/video and `.json` file (optional) must be in the source folder stated in `docker_compose.yml`.** 
+**2. You have the choice of either processing an image or video. The image/video and `.json` file (optional) must be in the source folder stated in `docker-compose.yml`.** 
 
 File extensions supported: `*.jpg`, `*.jpeg`, `*.png` for images, `*.avi`, `*.mp4` for videos.
 
@@ -168,7 +174,7 @@ The outputs of processing an image would be:
 The coordinates for vessels and kayaks are defined as such:
 ![vessel_and_kayak_coordinates_example](./images_for_readme/vessel_and_kayak_coordinates_example.png)
 
-**Both outputs will be in the folder where your source data (image(s), video(s), .json file(s) are stored in your machine. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent `OutputCSV.csv` file will overwrite the previous one as well.**
+**Both outputs will be in the folder where your source data (image(s), video(s), .json file(s) is located. As reiterated, the unprocessed image will be overwritten by the processed one in the same folder as they have the same name. Any subsequent `OutputCSV.csv` file will overwrite the previous one as well.**
 
 ### Using a Video
 **The original video will not be overwritten by the processed video.** **You have the option to include a `.json` file stating the (additional) frames you would like to infer. These frames from the input video will be included in the final processed video. Like an image, the output information after processing the frames listed in the `.json` file will be collected and stored in a `.csv` file.**
@@ -196,13 +202,13 @@ Run `docker exec -it <your-container-name>` on your terminal. In this case, the 
 
 ![input_image_or_video_name](./images_for_readme/input_image_or_video_name.png)
 
-Input the name (including file extension) of the image/video that you want processed (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME stated in `docker-compose.yml` as part of your input.** 
+Input the name (including file extension) of the image/video that you want processed (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME you stated in `docker-compose.yml`.** 
 
-Example: `dest_folder/YourImage.jpg` for images, `dest_folder/YourVideo.avi` for videos, where `dest_folder` is the destination folder.
+Example: `dest_folder/YourImage.jpg` for images, `dest_folder/YourVideo.avi` for videos, where `dest_folder` is the destination folder stated in `docker-compose.yml`.
 
-If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME stated in `docker-compose.yml` as part of your input.**
+If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME you stated in `docker-compose.yml`.**
 
-Example: `dest_folder/YourJson.json,  where `dest_folder` is the destination folder.
+Example: `dest_folder/YourJson.json,  where `dest_folder` is the destination folder stated in `docker-compose.yml`.
 
 ![input_json_name](./images_for_readme/input_json_name.png)
 
@@ -210,7 +216,7 @@ If `Y` is selected, then you can input the additional `.json` file (including fi
 
 The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
 
-The outputs should be produced in the source folder provided for the mounting.
+The outputs should be produced in the source folder involved in mounting.
 
 
 ## Debugging of Errors (FAQ)
@@ -221,8 +227,8 @@ The outputs should be produced in the source folder provided for the mounting.
 * Q: Why isn't the object being detected in my image, despite it clearly being there?
   * A: Check if the image has already been processed. Processing the image more than once might cause inaccuracies. 
 
-
-
+* Q: (Docker) `FROM nvcr.ionvidiapytorch:21.03-py3` fails when I run `docker-compose up -d`. What should I do?
+  * A: Run `docker pull nvcr.io/nvidia/pytorch:21.03-py3` and later run `docker-compose up -d` again.
 
 
 
