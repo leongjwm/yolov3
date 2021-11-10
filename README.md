@@ -135,7 +135,7 @@ Source: https://pytorch.org/get-started/locally/
 
 For instance, the default settings in the `docker-compose.yml` file are such that the `./src` is the source, and `/app/src` is the destination. (The `src` folder won't be in the Docker container created, due to the `.dockerignore` file.) 
 
-After setting the source and destination, we can create the Docker Container: `docker-compose up -d`
+**Create the Docker Container: `docker-compose up -d`** (after setting your source and destination).
 
 NOTE: It will take some time to create the Docker Image, and it uses a lot of computational resources.
 Do look at the output displayed in your console to ensure all instructions have been run.
