@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  yolov3:
+    container_name: yolov3
+    build:
+      context: ./
+    stdin_open: true
+    tty: true
+    volumes:
+      - yolov3:/app
+      - ./src:/app/src
+    shm_size: '2gb'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+volumes:
+  yolov3:
