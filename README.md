@@ -196,11 +196,13 @@ Run `docker exec -it <your-container-name>` on your terminal. In this case, the 
 
 ![input_image_or_video_name](./images_for_readme/input_image_or_video_name.png)
 
-Input the name (including file extension) of the image/video that you want processed (and press Enter).
+Input the name (including file extension) of the image/video that you want processed (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME stated in `docker-compose.yml` as part of your input.** 
 
-Example: `YourImage.jpg` for images, `YourVideo.avi` for videos.
+Example: `dest_folder/YourImage.jpg` for images, `dest_folder/YourVideo.avi` for videos, where `dest_folder` is the destination folder.
 
-If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter).
+If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME stated in `docker-compose.yml` as part of your input.**
+
+Example: `dest_folder/YourJson.json,  where `dest_folder` is the destination folder.
 
 ![input_json_name](./images_for_readme/input_json_name.png)
 
