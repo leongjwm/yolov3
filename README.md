@@ -140,7 +140,7 @@ For instance, the default settings in the `docker-compose.yml` file are such tha
 NOTE: It will take some time to create the Docker Image, and it uses a lot of computational resources.
 Do look at the output displayed in your console to ensure all instructions have been run.
 
-**IMPORTANT: If the `FROM nvcr.io/nvidia/pytorch:21.03-py3` instruction in the Dockerfile fails, run `docker pull nvcr.io/nvidia/pytorch:21.03-py3` and later run `docker-compose up -d` again.
+**IMPORTANT: If the `FROM nvcr.io/nvidia/pytorch:21.03-py3` instruction in the Dockerfile fails, run `docker pull nvcr.io/nvidia/pytorch:21.03-py3` and later run `docker-compose up -d` again.**
 
 ## Docker: Detecting Vessels and Kayaks in an Image or Video
 **Before using the repository, ensure that you have:**
