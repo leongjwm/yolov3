@@ -124,7 +124,7 @@ We will demonstrate how to build our Docker Image, which we will later use when 
 
 We need to download and install [Docker Desktop](https://docs.docker.com/get-docker/). For those using Visual Studio Code, it is recommended to install the [Docker Extension](https://code.visualstudio.com/docs/containers/overview).
 
-Docker image was tested to be working on a `p2.xlarge` AWS EC2 instance. The `p2.xlarge` instances have a Tesla K80 GPU, and in the Dockerfile, we installed a version of pytorch compatible with the CUDA11.3 platform.
+**Docker image was tested to be working on a `p2.xlarge` AWS EC2 instance. The `p2.xlarge` instances have a Tesla K80 GPU, and in the Dockerfile, we installed a version of pytorch compatible with the CUDA11.3 platform.**
 
 Source: https://pytorch.org/get-started/locally/
 
