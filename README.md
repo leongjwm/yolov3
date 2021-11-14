@@ -200,9 +200,13 @@ The outputs of processing a video would be:
 
 Run `docker exec -it <your-container-name> bash` on your terminal. In this case, the container name is `yolov3`, which is the default name set in `docker-compose.yml`. You will see the following display on your console:
 
-![input_image_or_video_name](./images_for_readme/input_image_or_video_name.png)
+![docker_ls](./images_for_readme/docker_ls.png)
+
+Next, run `python main.py` on your terminal. 
 
 Input the name (including file extension) of the image/video that you want processed (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME you stated in `docker-compose.yml`.** 
+
+![docker_run_python_main](./images_for_readme/docker_run_python_main.png)
 
 Example: `dest_folder/YourImage.jpg` for images, `dest_folder/YourVideo.avi` for videos, where `dest_folder` is the destination folder stated in `docker-compose.yml`.
 
@@ -210,7 +214,7 @@ If the input is a **video**, you can choose whether to include an `.json` file a
 
 Example: `dest_folder/YourJson.json`,  where `dest_folder` is the destination folder stated in `docker-compose.yml`.
 
-![input_json_name](./images_for_readme/input_json_name.png)
+![docker_run_python_main_2](./images_for_readme/docker_run_python_main_2.png)
 
 If `Y` is selected, then you can input the additional `.json` file (including file extension), then press Enter. Otherwise, inference will be done only on some frames of the input video.
 
