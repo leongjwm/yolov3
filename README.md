@@ -198,7 +198,7 @@ The outputs of processing a video would be:
 
 ### Inference
 
-Run `docker exec -it <your-container-name>` on your terminal. In this case, the container name is `yolov3`, which is the default name set in `docker-compose.yml`. You will see the following display on your console:
+Run `docker exec -it <your-container-name> bash` on your terminal. In this case, the container name is `yolov3`, which is the default name set in `docker-compose.yml`. You will see the following display on your console:
 
 ![input_image_or_video_name](./images_for_readme/input_image_or_video_name.png)
 
