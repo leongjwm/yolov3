@@ -212,11 +212,11 @@ Example: `dest_folder/YourImage.jpg` for images, `dest_folder/YourVideo.avi` for
 
 If the input is a **video**, you can choose whether to include an `.json` file as an additional input by typing either `Y` or `N` (and press Enter). **INCLUDE THE DESTINATION FOLDER NAME you stated in `docker-compose.yml`.**
 
+If `Y` is selected, then you can input the additional `.json` file (including file extension), then press Enter. Otherwise, inference will be done only on some frames of the input video.
+
 Example: `dest_folder/YourJson.json`,  where `dest_folder` is the destination folder stated in `docker-compose.yml`.
 
 ![docker_run_python_main_2](./images_for_readme/docker_run_python_main_2.png)
-
-If `Y` is selected, then you can input the additional `.json` file (including file extension), then press Enter. Otherwise, inference will be done only on some frames of the input video.
 
 The frames chosen are such that the time taken to complete the inference (inclusive of time taken to extract frames from the unprocessed video and producing the outputs) are less than twice the duration of the video, i.e. a 15 second video should take 30 seconds for the aforementioned processes to be completed. The time taken will be displayed on the console.
 
